@@ -3,7 +3,8 @@ package com.jnh.game;
 public class Launcher {
 	
 	public void main(String[] args) {
-		System.out.println("Hello World");
+		Game game = new Game();
+		game.start();
 	}
 	
 }

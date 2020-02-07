@@ -10,7 +10,7 @@ Ihr solltet auf keine vertraulichen Informationen etc. in die Dokumentation, den
 
 ### Markdown
 
-Markdown ist eine Markup-Sprache, mit der solche Texte wie dieser elegant formatiert werden können. Mehr [hier](https://github.github.com/gfm/). Ein guter Markdown - Editor ist [Typora](typora.io).
+Markdown ist eine Markup-Sprache, mit der solche Texte wie dieser elegant formatiert werden können. Mehr [hier](https://github.github.com/gfm/). Ein guter Markdown - Editor ist [Typora](https://typora.io).
 
 ### Eclipse
 

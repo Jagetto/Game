@@ -2,7 +2,7 @@ package com.jnh.game;
 
 public class Launcher {
 	
-	public void main(String[] args) {
+	public static void main(String[] args) {
 		Game game = new Game();
 		game.start();
 	}

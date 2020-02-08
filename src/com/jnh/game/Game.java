@@ -18,13 +18,13 @@ public class Game implements Runnable {
 	
 	//TODO Resizing
 	private int width = 1600;
-	private int height = 1600;
+	private int height = 1000;
 	
 	private State state;
 	
 	private void init() {
 		//TODO init eventlistener
-		display = new Display("Game Title", width, height);
+		display = new Display(this, "Game Title", width, height);
 	}
 	
 	public void tick(double deltaTime) {
@@ -52,6 +52,11 @@ public class Game implements Runnable {
 		
 		bufferStrategy.show();
 		graphics.dispose();
+	}
+	
+	public void resize(int width, int height) {
+		this.width = width;
+		this.height = height;
 	}
 	
 	@Override

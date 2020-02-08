@@ -6,6 +6,12 @@ import java.awt.image.BufferStrategy;
 import com.jnh.game.state.State;
 import com.jnh.gfx.Display;
 
+/**
+ * Die Klasse die das Spiel und den Render / Tick - Loop verwaltet.
+ * 
+ * @author Henning
+ *
+ */
 public class Game implements Runnable {
 
 	private Thread thread;
@@ -22,11 +28,18 @@ public class Game implements Runnable {
 	
 	private State state;
 	
+	/**
+	 * Wird beim Erstellen des Ticks aufgerufen und initialisiert einige Dinge.
+	 */
 	private void init() {
 		//TODO init eventlistener
 		display = new Display(this, "Game Title", width, height);
 	}
 	
+	/**
+	 * Wird jedes Frame aufgerufen und ist für das Verwalten von Ereignissen verantwortlich.
+	 * @param deltaTime die Zeit in Nanosekunden seit dem letzten Tick
+	 */
 	public void tick(double deltaTime) {
 		System.out.println("tick");
 		//TODO tick eventlistener
@@ -34,7 +47,10 @@ public class Game implements Runnable {
 			state.render(graphics);
 		}
 	}
-
+	
+	/**
+	 * Wird jedes Frame aufgerufen und ist für das Rendern zuständig.
+	 */
 	public void render() {
 		bufferStrategy = display.getCanvas().getBufferStrategy();
 		if(bufferStrategy == null) {
@@ -54,11 +70,22 @@ public class Game implements Runnable {
 		graphics.dispose();
 	}
 	
+	/**
+	 * Wird aufgerufen, um das Spiel zu resizen.
+	 * @param width
+	 * @param height
+	 */
 	public void resize(int width, int height) {
 		this.width = width;
 		this.height = height;
+		if(state != null) {
+			state.resize(width, height);
+		}
 	}
 	
+	/**
+	 * Wird aufgerufen, wenn der Thread läuft und enthält den Render-Loop.
+	 */
 	@Override
 	public void run() {
 		init();	
@@ -88,6 +115,9 @@ public class Game implements Runnable {
 		}
 	}
 	
+	/**
+	 * Startet den Thread.
+	 */
 	public synchronized void start() {
 		if(running) {
 			return;
@@ -97,6 +127,9 @@ public class Game implements Runnable {
 		thread.start();
 	}
 	
+	/**
+	 * Stoppt den Thread.
+	 */
 	public synchronized void stop() {
 		if(!running) {
 			return;

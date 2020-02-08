@@ -86,7 +86,7 @@ public class Game implements Runnable {
 			state.render(graphics);
 		}
 		
-		test.render(graphics, 100, 100, 150, 50);
+		test.render(graphics, 50, 50, 150, 50);
 		
 		bufferStrategy.show();
 		graphics.dispose();

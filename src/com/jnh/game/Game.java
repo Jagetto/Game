@@ -2,12 +2,12 @@ package com.jnh.game;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
 
 import com.jnh.game.gfx.Display;
+import com.jnh.game.state.GameState;
 import com.jnh.game.state.State;
-import com.jnh.game.utils.FileLoader;
+import com.jnh.game.utils.assets.Assets;
 
 /**
  * Die Klasse die das Spiel und den Render / Tick - Loop verwaltet.
@@ -32,12 +32,22 @@ public class Game implements Runnable {
 	private State state;
 	
 	/**
-	 * Wird beim Erstellen des Ticks aufgerufen und initialisiert einige Dinge.
+	 * Wird beim Erstellen des Ticks aufgerufen und initialisiert einige Dinge, wenn es zu einem Fehler kommt wird das Programm beendet.
+	 * 
+	 * TODO error message
 	 */
 	private void init() {
-		
+		try {
+			Assets.init();
+		} catch (FileNotFoundException e) {
+			System.out.println("could not load textures");
+			e.printStackTrace();
+			System.exit(0);
+		}
 		//TODO init eventlistener
 		display = new Display(this, "Game Title", width, height);
+		
+		setState(new GameState());
 	}
 	
 	/**
@@ -144,6 +154,26 @@ public class Game implements Runnable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Diese Methode setzt den State des Spiels zu den angegeben und ruft {@link State.load()} sowie ggf. {@link State.dispose()} beim alten auf.
+	 * @param state der neue State
+	 */
+	public void setState(State state) {
+		if(this.state != null) {
+			this.state.dispose();
+		}
+		this.state = state;
+		state.load();
+	}
+	
+	/**
+	 * Diese Methode gibt den momentanen State zurück.
+	 * @return den momentanen State
+	 */
+	public State getState() {
+		return state;
 	}
 
 }

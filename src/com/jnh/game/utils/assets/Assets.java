@@ -7,7 +7,8 @@ import com.jnh.game.utils.FileLoader;
 
 /**
  * Diese Klasse ist für das Laden aller Texturen verantwortlich.
- * @author Guest
+ * 
+ * @author Henning
  *
  */
 public class Assets {

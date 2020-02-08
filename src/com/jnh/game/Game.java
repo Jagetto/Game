@@ -2,9 +2,12 @@ package com.jnh.game;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.FileNotFoundException;
 
+import com.jnh.game.gfx.Display;
 import com.jnh.game.state.State;
-import com.jnh.gfx.Display;
+import com.jnh.game.utils.FileLoader;
 
 /**
  * Die Klasse die das Spiel und den Render / Tick - Loop verwaltet.
@@ -32,6 +35,7 @@ public class Game implements Runnable {
 	 * Wird beim Erstellen des Ticks aufgerufen und initialisiert einige Dinge.
 	 */
 	private void init() {
+		
 		//TODO init eventlistener
 		display = new Display(this, "Game Title", width, height);
 	}

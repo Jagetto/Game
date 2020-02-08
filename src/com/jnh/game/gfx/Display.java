@@ -1,4 +1,4 @@
-package com.jnh.gfx;
+package com.jnh.game.gfx;
 
 import java.awt.Canvas;
 import java.awt.Color;

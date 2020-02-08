@@ -11,7 +11,7 @@ import com.jnh.game.utils.assets.Assets;
 import com.jnh.game.utils.assets.Sprite;
 
 /**
- * Die Klasse die das Spiel und den Render / Tick - Loop verwaltet.
+ * Die Klasse die das Spiel und den Render / Tick - Loop und andere Events sowie den Thread verwaltet.
  * 
  * @author Henning
  *

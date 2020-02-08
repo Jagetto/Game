@@ -16,6 +16,11 @@ public class GameCamera {
 		this.inertia = inertia;
 	}
 	
+	public void tick(double deltaTime) {
+		this.x = (this.aimedX + this.x) / 2;
+		this.y = (this.aimedY + this.y) / 2;
+	}
+	
 	/**
 	 * Setzt die Ziel-Position zu den angegebenen Werten.
 	 * @param aimedX die x-Koordinate des Ziels

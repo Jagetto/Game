@@ -8,6 +8,7 @@ import com.jnh.game.gfx.Display;
 import com.jnh.game.state.GameState;
 import com.jnh.game.state.State;
 import com.jnh.game.utils.assets.Assets;
+import com.jnh.game.utils.assets.Sprite;
 
 /**
  * Die Klasse die das Spiel und den Render / Tick - Loop verwaltet.
@@ -31,6 +32,7 @@ public class Game implements Runnable {
 	
 	private State state;
 	
+	private Sprite test;
 	/**
 	 * Wird beim Erstellen des Ticks aufgerufen und initialisiert einige Dinge, wenn es zu einem Fehler kommt wird das Programm beendet.
 	 * 
@@ -47,6 +49,8 @@ public class Game implements Runnable {
 		//TODO init eventlistener
 		display = new Display(this, "Game Title", width, height);
 		
+		test = new Sprite(Assets.TEST);
+		
 		setState(new GameState());
 	}
 	
@@ -60,6 +64,7 @@ public class Game implements Runnable {
 		if(state != null) {
 			state.render(graphics);
 		}
+		test.setRotation(test.getRotation() + 1);
 	}
 	
 	/**
@@ -76,9 +81,12 @@ public class Game implements Runnable {
 		graphics.clearRect(0, 0, width, height);
 		
 		graphics.drawString("Test 07.02.2020 LOL", 20, 20);
+		
 		if(state != null) {
 			state.render(graphics);
 		}
+		
+		test.render(graphics, 100, 100, 150, 50);
 		
 		bufferStrategy.show();
 		graphics.dispose();

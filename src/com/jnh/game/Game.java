@@ -4,19 +4,15 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.io.FileNotFoundException;
 
-import com.jnh.game.gameObjects.entities.Entity;
 import com.jnh.game.gfx.Display;
 import com.jnh.game.state.GameState;
 import com.jnh.game.state.State;
-import com.jnh.game.utils.Logger;
 import com.jnh.game.utils.assets.Assets;
 import com.jnh.game.utils.assets.Sprite;
 
 /**
  * Die Klasse die das Spiel und den Render / Tick - Loop und andere Events sowie den Thread verwaltet.
- * 
  * @author Henning
- *
  */
 public class Game implements Runnable {
 
@@ -47,12 +43,10 @@ public class Game implements Runnable {
 			e.printStackTrace();
 			System.exit(0);
 		}
-		//TODO init eventlistener
 		display = new Display(this, "Game Title", width, height);
-		
 		test = new Sprite(Assets.TEST);
 		
-		setState(new GameState());
+		setState(new GameState(this));
 	}
 	
 	/**
@@ -60,9 +54,8 @@ public class Game implements Runnable {
 	 * @param deltaTime die Zeit in Sekunden seit dem letzten Tick
 	 */
 	public void tick(double deltaTime) {
-		//TODO tick eventlistener
 		if(state != null) {
-			state.render(graphics);
+			state.tick(deltaTime);
 		}
 		test.setRotation(test.getRotation() + 1);
 	}
@@ -183,5 +176,13 @@ public class Game implements Runnable {
 	public State getState() {
 		return state;
 	}
+
+	/**
+	 * @return das Display
+	 */
+	public Display getDisplay() {
+		return display;
+	}
+	
 
 }

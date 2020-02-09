@@ -8,9 +8,7 @@ import com.jnh.game.utils.assets.Sprite;
 
 /**
  * Die grundlegende Klasse für alle Objekte im Spiel. Darunter fallen Lebewesen, Monster, der Spieler, Gegenstände, Wände etc.
- * 
  * @author Henning
- *
  */
 public abstract class GameObject {
 	
@@ -44,7 +42,7 @@ public abstract class GameObject {
 	 */
 	public void render(Graphics g) {
 		//TODO add camera offset
-		sprite.render(g, x * Global.SCALE, y * Global.SCALE, width * Global.SCALE, height * Global.SCALE);
+		sprite.render(g, (x - state.getCamera().getX()) * Global.SCALE, (y - state.getCamera().getY()) * Global.SCALE, width * Global.SCALE, height * Global.SCALE);
 	}
 	
 	/**
@@ -55,70 +53,69 @@ public abstract class GameObject {
 		
 	}
 	
-
 	/**
 	 * @return das Sprite
 	 */
 	public Sprite getSprite() {
 		return sprite;
 	}
-
+	
 	/**
 	 * @param sprite das Sprite
 	 */
 	public void setSprite(Sprite sprite) {
 		this.sprite = sprite;
 	}
-
+	
 	/**
 	 * @return die x-Koordinate
 	 */
 	public float getX() {
 		return x;
 	}
-
+	
 	/**
 	 * @param x die x-Koordinate
 	 */
 	public void setX(float x) {
 		this.x = x;
 	}
-
+	
 	/**
 	 * @return die y-Koordinate
 	 */
 	public float getY() {
 		return y;
 	}
-
+	
 	/**
 	 * @param y die y-Koordinate
 	 */
 	public void setY(float y) {
 		this.y = y;
 	}
-
+	
 	/**
 	 * @return die Breite
 	 */
 	public float getWidth() {
 		return width;
 	}
-
+	
 	/**
 	 * @param width die Breite
 	 */
 	public void setWidth(float width) {
 		this.width = width;
 	}
-
+	
 	/**
 	 * @return die Höhe
 	 */
 	public float getHeight() {
 		return height;
 	}
-
+	
 	/**
 	 * @param height die Höhe
 	 */

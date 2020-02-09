@@ -2,14 +2,11 @@ package com.jnh.game.gameObjects.entities;
 
 import com.jnh.game.gameObjects.GameObject;
 import com.jnh.game.state.GameState;
-import com.jnh.game.utils.Logger;
 import com.jnh.game.utils.assets.Sprite;
 
 /**
  * Dies ist die Klasse zur Verwaltung aller lebender und sich bewegender Lebewesen. Dazu gehören Menschen, der Player, Monster, Tiere usw., aber keine Pflanzen, die sich ja nicht bewegen können und kein wirkliches Health-System benötigen.
- * 
  * @author Henning
- *
  */
 public abstract class Entity extends GameObject {
 	
@@ -17,6 +14,15 @@ public abstract class Entity extends GameObject {
 	private int health;
 	private float speed;
 	
+	/**
+	 * Erezeugt ein neues Entity-Objekt mit den angegebenen Parametern.
+	 * @param state der GameState
+	 * @param sprite das Sprite
+	 * @param x die x-Koordinate
+	 * @param y die y-Koordinate
+	 * @param width die Breite
+	 * @param height die Höhe
+	 */
 	public Entity(GameState state, Sprite sprite, float x, float y, float width, float height) {
 		super(state, sprite, x, y, width, height);
 	}

@@ -9,9 +9,7 @@ import java.awt.image.BufferedImage;
 
 /**
  * Diese Klasse umfasst ein Bild, sowie Operationen um dessen Aussehehen beim Rendern zu Modifizieren, wie die Drehung.
- * 
  * @author Henning
- *
  */
 public class Sprite {
 	

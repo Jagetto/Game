@@ -41,7 +41,6 @@ public abstract class GameObject {
 	 * @param g das Graphics-Objekt zum Zeichnen
 	 */
 	public void render(Graphics g) {
-		//TODO add camera offset
 		sprite.render(g, (x - state.getCamera().getX()) * Global.SCALE, (y - state.getCamera().getY()) * Global.SCALE, width * Global.SCALE, height * Global.SCALE);
 	}
 	

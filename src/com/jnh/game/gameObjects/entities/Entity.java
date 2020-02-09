@@ -2,6 +2,7 @@ package com.jnh.game.gameObjects.entities;
 
 import com.jnh.game.gameObjects.GameObject;
 import com.jnh.game.state.GameState;
+import com.jnh.game.utils.Direction;
 import com.jnh.game.utils.assets.Sprite;
 
 /**
@@ -9,6 +10,8 @@ import com.jnh.game.utils.assets.Sprite;
  * @author Henning
  */
 public abstract class Entity extends GameObject {
+	
+	protected static final float DEFAULT_ENTITY_SIZE = 0.9f;
 	
 	private int maxHealth;
 	private int health;
@@ -25,8 +28,49 @@ public abstract class Entity extends GameObject {
 	 */
 	public Entity(GameState state, Sprite sprite, float x, float y, float width, float height) {
 		super(state, sprite, x, y, width, height);
+		this.speed = 1f;
+		this.maxHealth = 100;
+		this.health = 100;
 	}
-
+	
+	/**
+	 * Bewegt die Entity um <code>speed</code> Einheiten in die entsprechende Richtung.
+	 * @param direction die Richtung
+	 * @param deltaTime die Zeit in Sekunden seit dem letzten Tick
+	 * @see #move(Direction, float, double)
+	 * @see Direction
+	 */
+	public void move(Direction direction, double deltaTime) {
+		move(direction, 1f, deltaTime);
+	}
+	
+	/**
+	 * Bewegt die Entity um <code>speed * speedMultiplier</code> Einheiten in die entsprechende Richtung.
+	 * @param direction die Richtung
+	 * @param speedMultiplier der Geschwindigkeitsfaktor.
+	 * @param deltaTime die Zeit in Sekunden seit dem letzten Tick
+	 * @see #move(Direction, double)
+	 * @see Direction
+	 */
+	public void move(Direction direction, float speedMultiplier, double deltaTime) {
+		switch (direction) {
+		case UP:
+			setY((float) (getY() - speed * speedMultiplier * deltaTime));
+			break;
+		case LEFT:
+			setX((float) (getX() - speed * speedMultiplier * deltaTime));
+			break;
+		case DOWN:
+			setY((float) (getY() + speed * speedMultiplier * deltaTime));
+			break;
+		case RIGHT:
+			setX((float) (getX() + speed * speedMultiplier * deltaTime));
+			break;
+		default:
+			break;
+		}
+	}
+	
 	/**
 	 * @return die maximale Anzahl an Gesundheit, die die Entity erhalten kann. Theoretisch kann das umgangen werden, aber dies sollte nur bei Dingen wie Magie geschehen, aber natürliche Regeneration sollte das nicht erlauben.
 	 */

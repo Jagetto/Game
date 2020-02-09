@@ -14,7 +14,7 @@ import com.jnh.game.utils.assets.Sprite;
  */
 public abstract class GameObject {
 	
-	private GameState state;
+	protected GameState state;
 	private Sprite sprite;
 	private float x;
 	private float y;

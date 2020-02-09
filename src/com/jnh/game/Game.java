@@ -4,9 +4,11 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.io.FileNotFoundException;
 
+import com.jnh.game.gameObjects.entities.Entity;
 import com.jnh.game.gfx.Display;
 import com.jnh.game.state.GameState;
 import com.jnh.game.state.State;
+import com.jnh.game.utils.Logger;
 import com.jnh.game.utils.assets.Assets;
 import com.jnh.game.utils.assets.Sprite;
 
@@ -35,7 +37,6 @@ public class Game implements Runnable {
 	private Sprite test;
 	/**
 	 * Wird beim Erstellen des Ticks aufgerufen und initialisiert einige Dinge, wenn es zu einem Fehler kommt wird das Programm beendet.
-	 * 
 	 * TODO error message
 	 */
 	private void init() {
@@ -56,10 +57,9 @@ public class Game implements Runnable {
 	
 	/**
 	 * Wird jedes Frame aufgerufen und ist für das Verwalten von Ereignissen verantwortlich.
-	 * @param deltaTime die Zeit in Nanosekunden seit dem letzten Tick
+	 * @param deltaTime die Zeit in Sekunden seit dem letzten Tick
 	 */
 	public void tick(double deltaTime) {
-		System.out.println("tick");
 		//TODO tick eventlistener
 		if(state != null) {
 			state.render(graphics);

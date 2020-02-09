@@ -1,22 +1,41 @@
 package com.jnh.game.gfx.cameras;
 
+import com.jnh.game.gameObjects.GameObject;
+
 public class GameCamera {
 	
+	private GameObject centerObject;
 	private float aimedX;
 	private float aimedY;
 	private float x;
 	private float y;
 	private float inertia;
 	
-	public GameCamera(float x, float y, float inertia) {
+	/**
+	 * Erstellt eine neue Kamera mit den Parametern.
+	 * @param x die x-Koordinate der Start-Position der Kamera
+	 * @param y die y-Koordinate der Start-Position der Kamera
+	 * @param inertia die Trägheit der Kamera
+	 * @param centerObject das zu folgende Objekt (<code>null</null> für kein Objekt)
+	 */
+	public GameCamera(float x, float y, float inertia, GameObject centerObject) {
 		this.x = x;
 		this.y = y;
 		this.aimedX = x;
 		this.aimedY = y;
 		this.inertia = inertia;
+		this.centerObject = centerObject;
 	}
 	
+	/**
+	 * Diese Methode sollten jeden Tick aufgerufen werden und updatet die Position der Kamera.
+	 * @param deltaTime die Zeit in Sekunden seit dem letzten Tick
+	 */
 	public void tick(double deltaTime) {
+		if(centerObject != null) {
+			aimedX = centerObject.getX();
+			aimedY = centerObject.getY();
+		}
 		this.x = (this.aimedX + this.x) / 2;
 		this.y = (this.aimedY + this.y) / 2;
 	}
@@ -71,6 +90,22 @@ public class GameCamera {
 	 */
 	public void setInertia(float inertia) {
 		this.inertia = inertia;
+	}
+
+	/**
+	 * Gibt das Objekt zurück, dem die Kamera automatisch folgt.
+	 * @return das zu folgende Objekt
+	 */
+	public GameObject getCenterObject() {
+		return centerObject;
+	}
+
+	/**
+	 * Setzt das zu folgende Objekt auf centerObject. Die Kamera wird nun automatisch die aimedPosition auf dieses Objekt setzen. Wenn das Objekt <code>null</code> ist, passiert gar nichts.
+	 * @param centerObject das zu folgende Objekt
+	 */
+	public void setCenterObject(GameObject centerObject) {
+		this.centerObject = centerObject;
 	}
 	
 	

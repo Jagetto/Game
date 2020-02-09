@@ -4,8 +4,7 @@ import java.awt.Graphics;
 
 /**
  * Die State-Klasse ist eine abstrakte Klasse, von der alle Ansichten des Spiels erben sollten. So sollte die Ansicht des Spiels oder beispielsweise eine Menü-Klasse einer erbende Klasse dieser sein.
- * @author henni
- *
+ * @author Henning
  */
 public abstract class State {
 	
@@ -16,7 +15,7 @@ public abstract class State {
 	
 	/**
 	 * Wird jeden Tick aufgerufen und sollte die Logik des Spiels modifizieren.
-	 * @param deltaTime die Zeit in Nanosekunden seit dem letzten Tick
+	 * @param deltaTime die Zeit in Sekunden seit dem letzten Tick
 	 */
 	public abstract void tick(double deltaTime);
 	

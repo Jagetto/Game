@@ -2,6 +2,7 @@ package com.jnh.game.gameObjects.entities;
 
 import com.jnh.game.gameObjects.GameObject;
 import com.jnh.game.state.GameState;
+import com.jnh.game.utils.Logger;
 import com.jnh.game.utils.assets.Sprite;
 
 /**

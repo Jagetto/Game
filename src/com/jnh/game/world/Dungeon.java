@@ -4,7 +4,7 @@ import com.jnh.game.world.rooms.Room;
 
 /**
  * Progressiv erstellte Karte für das Spiel.
- * @author Guest
+ * @author Henning
  *
  */
 public class Dungeon {

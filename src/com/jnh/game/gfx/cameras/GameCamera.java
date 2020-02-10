@@ -36,8 +36,8 @@ public class GameCamera {
 			aimedX = centerObject.getX();
 			aimedY = centerObject.getY();
 		}
-		this.x = (this.aimedX + this.x) / 2;
-		this.y = (this.aimedY + this.y) / 2;
+		this.x = (this.aimedX + this.x * inertia) / (1 + inertia);
+		this.y = (this.aimedY + this.y * inertia) / (1 + inertia);
 	}
 	
 	/**

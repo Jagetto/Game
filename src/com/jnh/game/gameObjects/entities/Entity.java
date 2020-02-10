@@ -28,7 +28,7 @@ public abstract class Entity extends GameObject {
 	 */
 	public Entity(GameState state, Sprite sprite, float x, float y, float width, float height) {
 		super(state, sprite, x, y, width, height);
-		this.speed = 1f;
+		this.speed = 0.3f;
 		this.maxHealth = 100;
 		this.health = 100;
 	}
@@ -55,16 +55,16 @@ public abstract class Entity extends GameObject {
 	public void move(Direction direction, float speedMultiplier, double deltaTime) {
 		switch (direction) {
 		case UP:
-			setY((float) (getY() - speed * speedMultiplier * deltaTime));
+			setY((float) (getY() - speed * speedMultiplier));
 			break;
 		case LEFT:
-			setX((float) (getX() - speed * speedMultiplier * deltaTime));
+			setX((float) (getX() - speed * speedMultiplier));
 			break;
 		case DOWN:
-			setY((float) (getY() + speed * speedMultiplier * deltaTime));
+			setY((float) (getY() + speed * speedMultiplier));
 			break;
 		case RIGHT:
-			setX((float) (getX() + speed * speedMultiplier * deltaTime));
+			setX((float) (getX() + speed * speedMultiplier));
 			break;
 		default:
 			break;

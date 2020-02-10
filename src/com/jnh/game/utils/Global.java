@@ -12,5 +12,5 @@ public class Global {
 	/**
 	 * Wie viele Pixel einer Einheit im Spiel entsprechen.
 	 */
-	public static final int SCALE = 16;
+	public static final int SCALE = 128;
 }

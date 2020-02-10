@@ -16,7 +16,7 @@ public class Assets {
 	/**
 	 * TEST-IMAGE
 	 */
-	public static BufferedImage TEST;
+	public static BufferedImage TEST, PLAYER, DEBUG;
 	
 	/**
 	 * Lädt alle Texturen.
@@ -24,5 +24,7 @@ public class Assets {
 	 */
 	public static void init() throws FileNotFoundException {
 		TEST = FileLoader.loadImage("test.png");
+		PLAYER = FileLoader.loadImage("player.png");
+		DEBUG = FileLoader.loadImage("debug.png");
 	}
 }

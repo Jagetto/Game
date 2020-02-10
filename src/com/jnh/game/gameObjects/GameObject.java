@@ -10,7 +10,7 @@ import com.jnh.game.utils.assets.Sprite;
  * Die grundlegende Klasse für alle Objekte im Spiel. Darunter fallen Lebewesen, Monster, der Spieler, Gegenstände, Wände etc.
  * @author Henning
  */
-public abstract class GameObject {
+public class GameObject {
 	
 	protected GameState state;
 	private Sprite sprite;
@@ -41,7 +41,7 @@ public abstract class GameObject {
 	 * @param g das Graphics-Objekt zum Zeichnen
 	 */
 	public void render(Graphics g) {
-		sprite.render(g, (x - state.getCamera().getX()) * Global.SCALE, (y - state.getCamera().getY()) * Global.SCALE, width * Global.SCALE, height * Global.SCALE);
+		sprite.render(g, (x - state.getCamera().getX()) * Global.SCALE + state.getWidth() / 2, (y - state.getCamera().getY()) * Global.SCALE + state.getHeight() / 2, width * Global.SCALE, height * Global.SCALE);
 	}
 	
 	/**

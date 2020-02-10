@@ -7,7 +7,7 @@ import com.jnh.game.gameObjects.GameObject;
 import com.jnh.game.state.GameState;
 
 /**
- * Diese Klasse ist zum Verwalten aller GameObject in der GameState gedacht.
+ * Diese Klasse ist zum Verwalten aller GameObjects in der GameState gedacht.
  * @see GameState
  * @author Henning
  */

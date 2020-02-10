@@ -7,12 +7,15 @@ import com.jnh.game.utils.assets.Sprite;
 
 public class Player extends Entity {
 
-	public Player(GameState state, Sprite sprite, float x, float y, float width, float height) {
-		super(state, new Sprite(Assets.TEST, 1f, 0f, false), x, y, width, height);
+	//TODO add inventar
+	
+	public Player(GameState state, float x, float y) {
+		super(state, new Sprite(Assets.PLAYER, 1f, 0f, false), x, y, Player.DEFAULT_ENTITY_SIZE, Player.DEFAULT_ENTITY_SIZE);
 	}
 
 	@Override
 	public void tick(double deltaTime) {
+		super.tick(deltaTime);
 		if(state.getKeyManager().walkUp) {
 			move(Direction.UP, deltaTime);
 		}
@@ -25,7 +28,6 @@ public class Player extends Entity {
 		if(state.getKeyManager().walkRight) {
 			move(Direction.RIGHT, deltaTime);
 		}
-		super.tick(deltaTime);
 	}
 
 }

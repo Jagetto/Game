@@ -20,3 +20,26 @@ Das IDE was wir benutzen: https://www.eclipse.org/
 
 Diese Plattform, die zum Verwalten des Codes verwendet wird: https://git-scm.com/downloads
 
+```mermaid
+classDiagram
+      Animal <|-- Duck
+      Animal <|-- Fish
+      Animal <|-- Zebra
+      Animal : +int age
+      Animal : +String gender
+      Animal: +isMammal()
+      Animal: +mate()
+      class Duck{
+          +String beakColor
+          +swim()
+          +quack()
+      }
+      class Fish{
+          -int sizeInFeet
+          -canEat()
+      }
+      class Zebra{
+          +bool is_wild
+          +run()
+      }
+```

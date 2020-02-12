@@ -7,10 +7,19 @@ import com.jnh.game.utils.assets.Sprite;
 import com.jnh.game.world.rooms.Room;
 
 public class Floor extends GameObject {
-
-	public Floor(GameState state, Room room) {
+	
+	private float friction;
+	
+	public Floor(GameState state, Room room, float friction) {
 		super(state, new Sprite(Assets.DEBUG), 0, 0, Room.ROOM_WIDTH, Room.ROOM_HEIGHT);
+		this.friction = friction;
 	}
 	
+	/**
+	 * @return die Reibung
+	 */
+	public float getFriction() {
+		return friction;
+	}
 	
 }

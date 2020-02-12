@@ -46,6 +46,8 @@ public class GameState extends State {
 		game.getDisplay().getCanvas().addKeyListener(keyManager);
 		gameObjectManager = new GameObjectManager();
 		
+		dungeon = new Dungeon(this, System.currentTimeMillis(), 1);
+		
 		//TEMP
 		for(int i = 0; i < 10000; i++) {
 			gameObjectManager.add(new GameObject(this, new Sprite(Assets.DEBUG), (float) (Math.random() * 5), (float) (Math.random() * 5), 1, 1), false);
@@ -109,6 +111,13 @@ public class GameState extends State {
 	 */
 	public int getHeight() {
 		return height;
+	}
+	
+	/**
+	 * @return gibt den momentanen Dungeon zurück
+	 */
+	public Dungeon getDungeon() {
+		return dungeon;
 	}
 	
 }

@@ -15,7 +15,10 @@ public abstract class Entity extends GameObject {
 	
 	private int maxHealth;
 	private int health;
-	private float speed;
+	
+	private float maxSpeed;
+	private float xSpeed;
+	private float ySpeed;
 	
 	/**
 	 * Erezeugt ein neues Entity-Objekt mit den angegebenen Parametern.
@@ -28,7 +31,11 @@ public abstract class Entity extends GameObject {
 	 */
 	public Entity(GameState state, Sprite sprite, float x, float y, float width, float height) {
 		super(state, sprite, x, y, width, height);
-		this.speed = 0.3f;
+		
+		this.xSpeed = 0f;
+		this.ySpeed = 0f;
+		
+		this.maxSpeed = 0.3f;
 		this.maxHealth = 100;
 		this.health = 100;
 	}
@@ -45,7 +52,7 @@ public abstract class Entity extends GameObject {
 	}
 	
 	/**
-	 * Bewegt die Entity um <code>speed * speedMultiplier</code> Einheiten in die entsprechende Richtung.
+	 * Beschleunigt die Entity um weitere <code>speed * speedMultiplier</code> Einheiten in die entsprechende Richtung.
 	 * @param direction die Richtung
 	 * @param speedMultiplier der Geschwindigkeitsfaktor.
 	 * @param deltaTime die Zeit in Sekunden seit dem letzten Tick
@@ -55,22 +62,50 @@ public abstract class Entity extends GameObject {
 	public void move(Direction direction, float speedMultiplier, double deltaTime) {
 		switch (direction) {
 		case UP:
-			setY((float) (getY() - speed * speedMultiplier));
+			if(-ySpeed < maxSpeed) {
+				ySpeed = ySpeed - 0.03f * speedMultiplier;
+			}
 			break;
 		case LEFT:
-			setX((float) (getX() - speed * speedMultiplier));
+			if(-xSpeed < maxSpeed) {
+				xSpeed = xSpeed - 0.03f * speedMultiplier;
+			}
 			break;
 		case DOWN:
-			setY((float) (getY() + speed * speedMultiplier));
+			if(ySpeed < maxSpeed) {
+				ySpeed = ySpeed + 0.03f * speedMultiplier;
+			}
 			break;
 		case RIGHT:
-			setX((float) (getX() + speed * speedMultiplier));
+			if(xSpeed < maxSpeed) {
+				xSpeed = xSpeed + 0.03f * speedMultiplier;
+			}
 			break;
 		default:
 			break;
 		}
 	}
 	
+	
+	
+	@Override
+	public void tick(double deltaTime) {
+		super.tick(deltaTime);
+		if(Math.abs(xSpeed) > state.getDungeon().getCurrentRoom().getFloor().getFriction()) {
+			xSpeed = xSpeed - (Math.abs(xSpeed) / xSpeed) * state.getDungeon().getCurrentRoom().getFloor().getFriction();
+		} else {
+			xSpeed = 0;
+		}
+		if(Math.abs(ySpeed) > state.getDungeon().getCurrentRoom().getFloor().getFriction()) {
+			ySpeed = ySpeed - (Math.abs(ySpeed) / ySpeed) * state.getDungeon().getCurrentRoom().getFloor().getFriction();
+		} else {
+			ySpeed = 0;
+		}
+		setY(getY() + ySpeed);
+		setX(getX() + xSpeed);
+		
+	}
+
 	/**
 	 * @return die maximale Anzahl an Gesundheit, die die Entity erhalten kann. Theoretisch kann das umgangen werden, aber dies sollte nur bei Dingen wie Magie geschehen, aber natürliche Regeneration sollte das nicht erlauben.
 	 */
@@ -100,17 +135,45 @@ public abstract class Entity extends GameObject {
 	}
 
 	/**
-	 * @return die Geschwindigkeit
+	 * @return die momentane x-Geschwindigkeit
 	 */
-	public float getSpeed() {
-		return speed;
+	public float getXSpeed() {
+		return xSpeed;
 	}
 
 	/**
-	 * @param die Geschwindigkeit
+	 * @param die momentane x-Geschwindigkeit
 	 */
-	public void setSpeed(float speed) {
-		this.speed = speed;
+	public void setXSpeed(float xSpeed) {
+		this.xSpeed = xSpeed;
+	}
+	
+	/**
+	 * @return die momentane y-Geschwindigkeit
+	 */
+	public float getYSpeed() {
+		return ySpeed;
+	}
+
+	/**
+	 * @param die momentane y-Geschwindigkeit
+	 */
+	public void setYSpeed(float ySpeed) {
+		this.ySpeed = ySpeed;
+	}
+
+	/**
+	 * @return die auf natürlichem Wege maximal erreichbare Geschwindigkeit in jede Richtung
+	 */
+	public float getMaxSpeed() {
+		return maxSpeed;
+	}
+
+	/**
+	 * @param maxSpeed die auf natürlichem Wege maximal erreichbare Geschwindigkeit in jede Richtung
+	 */
+	public void setMaxSpeed(float maxSpeed) {
+		this.maxSpeed = maxSpeed;
 	}
 	
 	

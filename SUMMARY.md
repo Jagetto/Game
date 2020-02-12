@@ -10,6 +10,9 @@
 
 ## API Documentation <a id="documentation"></a>
 
+* [Game Objects](game-objects/README.md)
+  * [GameObject](game-objects/gameobject.md)
+
 ## Updates
 
 * [Untitled](updates/untitled.md)

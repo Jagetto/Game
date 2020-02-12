@@ -14,7 +14,7 @@ Programme und andere Dinge die nützlich sind, die wir verwenden, und wie man si
 
 {% page-ref page="programme.md" %}
 
-Sachen hier hinzufügen und dokumentieren
+Sachen hier hinzufügen und dokumentieren:
 
 {% page-ref page="git-github-gitbook.md" %}
 

@@ -105,6 +105,10 @@ public abstract class Entity extends GameObject {
 		setX(getX() + xSpeed);
 		
 	}
+	
+	public void takeDamage(int damage, boolean ignoreArmor) {
+		this.health = this.health - (damage - rüstung.getResistance());
+	}
 
 	/**
 	 * @return die maximale Anzahl an Gesundheit, die die Entity erhalten kann. Theoretisch kann das umgangen werden, aber dies sollte nur bei Dingen wie Magie geschehen, aber natürliche Regeneration sollte das nicht erlauben.

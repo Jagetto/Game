@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.LinkedList;
 
 import com.jnh.game.gameObjects.GameObject;
+import com.jnh.game.gameObjects.items.Item;
 import com.jnh.game.state.GameState;
 
 /**
@@ -15,6 +16,7 @@ public class GameObjectManager {
 	
 	private LinkedList<GameObject> gameObjects;
 	private LinkedList<GameObject> activeGameObjects;
+	private LinkedList<Item> items;
 	
 	/**
 	 * Erzeugt einen neuen GameObjectManager.

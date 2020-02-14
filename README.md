@@ -8,5 +8,12 @@ Ihr solltet auf keine vertraulichen Informationen etc. in die Dokumentation, den
 
 ## Dinge
 
+## Items
 
+### Schaden-Interface
+### Rüstung-Interface
+### Nahrungs-Interface
 
+### Status-Effekte
+dynamische Liste an Status-Effekte
+- tick();

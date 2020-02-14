@@ -49,7 +49,7 @@ public class GameState extends State {
 		dungeon = new Dungeon(this, System.currentTimeMillis(), 1);
 		
 		//TEMP
-		for(int i = 0; i < 10000; i++) {
+		for(int i = 0; i < 1000; i++) {
 			gameObjectManager.add(new GameObject(this, new Sprite(Assets.DEBUG), (float) (Math.random() * 5), (float) (Math.random() * 5), 1, 1), false);
 		}
 		
@@ -69,7 +69,7 @@ public class GameState extends State {
 
 	@Override
 	public void render(Graphics g) {
-		gameObjectManager.render(g);
+		//gameObjectManager.render(g);
 	}
 
 	@Override

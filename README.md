@@ -11,9 +11,14 @@ Ihr solltet auf keine vertraulichen Informationen etc. in die Dokumentation, den
 ## Items
 
 ### Schaden-Interface
-### Rüstung-Interface
+
+### Rï¿½stung-Interface
+
 ### Nahrungs-Interface
 
 ### Status-Effekte
+
 dynamische Liste an Status-Effekte
-- tick();
+
+* tick\(\);
+

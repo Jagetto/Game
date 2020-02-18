@@ -65,3 +65,7 @@ Diese Methode wird nach jedem Tick aufgerufen, was im Schnitt bis zu 60 mal pro 
 
 Diese Methode wird aufgerufen, wenn sich die Fenstergröße verändert. Die Parameter sind die neuen Abmessungen in Pixeln.
 
+### `dispose()`
+
+Diese letzte Methode wird aufgerufen, bevor der State beendet wird.
+

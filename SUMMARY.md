@@ -7,5 +7,10 @@
 * [Dokumentation](dokumentation/dokumentation.md)
 * [Launcher](dokumentation/launcher.md)
 * [Game](dokumentation/game.md)
-* [State](dokumentation/state.md)
+* [State](dokumentation/state/README.md)
+  * [GameState](dokumentation/state/gamestate.md)
+
+## Dinge
+
+* [Style-Konventionen](dinge/style-konventionen.md)
 

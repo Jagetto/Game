@@ -4,8 +4,6 @@ Das ist die Startseite des GitHub-Repositorys des Spiels. Es hat allerdings noch
 
 Ihr solltet auf keine vertraulichen Informationen etc. in die Dokumentation, den Source-Code oder in irgendwelche anderen Files schreiben, weil das gesamte Repository mit dem Link für jeden zugänglich ist.
 
-**Diese Dokumentation sollte mit gitbook.com geöffnet und verbunden werden.**
-
 ## Seiten
 
 {% page-ref page="dokumentation/dokumentation.md" %}

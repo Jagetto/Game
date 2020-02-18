@@ -30,7 +30,7 @@ public class Room {
 	}
 	
 	private void generate() {
-		floor = new Floor(state, this, 0.02f);
+		floor = new Floor(state, this, 0.025f);
 		if(dungeon.getGenerator().nextBoolean()) {
 			
 		}

@@ -54,7 +54,6 @@ public class Sprite {
 	 * @param height die Höhe
 	 */
 	public void render(Graphics g, float x, float y, float width, float height) {
-		
 		BufferedImage manipulatedImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
 		
 		//Flipping

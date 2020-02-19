@@ -1,8 +1,4 @@
----
-description: Die Super-Klasse aller States.
----
-
-# State
+﻿# State
 
 States sind Zustände des Programms. Es kann hierbei immer nur einen aktiven State geben. Dieser wird in `Game` gespeichert. Beispiele für solche States, die es später einmal geben wird oder bereits implementiert sind, sind z.B. `GameState` , der für die Verwaltung des eigentlichen Spiels zuständig ist, `MenuState`, der das Menu des Spiels verwaltet, `LoadingState`, für einen Lade-Screen beim Starten des Spiels.
 

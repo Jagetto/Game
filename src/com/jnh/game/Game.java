@@ -23,7 +23,6 @@ public class Game implements Runnable {
 	private BufferStrategy bufferStrategy;
 	private Graphics graphics;
 	
-	//TODO Resizing
 	private int width = 1600;
 	private int height = 1000;
 	

@@ -89,6 +89,13 @@ public class GameState extends State {
 	public GameKeyManager getKeyManager() {
 		return keyManager;
 	}
+	
+	/**
+	 * @return der GameObject-Manager, der die GameObjects verwaltet
+	 */
+	public GameObjectManager getGameObjectManager() {
+		return gameObjectManager;
+	}
 
 	/**
 	 * @return die Kamera

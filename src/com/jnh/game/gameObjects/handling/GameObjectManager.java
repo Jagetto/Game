@@ -16,7 +16,6 @@ public class GameObjectManager {
 	
 	private LinkedList<GameObject> gameObjects;
 	private LinkedList<GameObject> activeGameObjects;
-	private LinkedList<Item> items;
 	
 	/**
 	 * Erzeugt einen neuen GameObjectManager.

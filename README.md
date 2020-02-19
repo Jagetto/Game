@@ -4,6 +4,8 @@ Das ist die Startseite des GitHub-Repositorys des Spiels. Es hat allerdings noch
 
 Ihr solltet auf keine vertraulichen Informationen etc. in die Dokumentation, den Source-Code oder in irgendwelche anderen Files schreiben, weil das gesamte Repository mit dem Link für jeden zugänglich ist.
 
-## Seiten
+**Markdown-Files wie dieses können zwar direkt auf GitHub betrachtet werden, doch werden z.B. UML-Diagramme nur mithilfe von Typora richtig angezeigt werden.**
 
+[Zur Dokumentation](dokumentation/Dokumentation.md)
 
+[Verschiedene Dinge](dinge)

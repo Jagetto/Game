@@ -33,6 +33,7 @@ public class Game implements Runnable {
 	 * TODO error message
 	 */
 	private void init() {
+		System.setProperty("sun.java2d.opengl", "True");
 		try {
 			Assets.init();
 		} catch (FileNotFoundException e) {

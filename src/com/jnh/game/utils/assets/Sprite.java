@@ -13,11 +13,11 @@ import java.awt.image.BufferedImage;
  */
 public class Sprite {
 	
-	private BufferedImage image;
+	protected BufferedImage image;
 	
-	private float rotation;
-	private float transparency;
-	private boolean flip;
+	protected float rotation;
+	protected float transparency;
+	protected boolean flip;
 	
 	/**
 	 * Erstellt ein Sprite mit den Standard-Werten.

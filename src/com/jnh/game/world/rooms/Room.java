@@ -9,13 +9,12 @@ import com.jnh.game.world.Dungeon;
  * @author Henning
  * @see Dungeon
  */
-public class Room {
+public abstract class Room {
 	
 	public static final int ROOM_WIDTH =  10;
 	public static final int ROOM_HEIGHT =  10;
 	
 	private GameState state;
-	
 	private Dungeon dungeon;
 	
 	public RoomType type;
@@ -29,21 +28,7 @@ public class Room {
 		generate();
 	}
 	
-	private void generate() {
-		floor = new Floor(state, this, 0.025f);
-		if(dungeon.getGenerator().nextBoolean()) {
-			
-		}
-		if(dungeon.getGenerator().nextBoolean()) {
-			
-		}
-		if(dungeon.getGenerator().nextBoolean()) {
-	
-}
-		if(dungeon.getGenerator().nextBoolean()) {
-	
-		}
-	}
+	protected abstract void generate();
 
 	/**
 	 * @return der Boden
@@ -52,6 +37,12 @@ public class Room {
 		return floor;
 	}
 	
+	protected GameState getState() {
+		return state;
+	}
 	
+	protected Dungeon getDungeon() {
+		return dungeon;
+	}
 	
 }

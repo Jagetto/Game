@@ -9,6 +9,9 @@ public class PremadeRoom extends Room {
 		super(state, dungeon);
 	}
 
-	
+	@Override
+	protected void generate() {
+		
+	}
 
 }

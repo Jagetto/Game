@@ -6,7 +6,8 @@ import com.jnh.game.utils.assets.Assets;
 import com.jnh.game.utils.assets.Sprite;
 
 public class Wall extends GameObject {
-
+	
+	
 	public Wall(GameState state, Sprite sprite, float x, float y) {
 		super(state, new Sprite(Assets.DEBUG), x, y, 1f, 1f);
 	}

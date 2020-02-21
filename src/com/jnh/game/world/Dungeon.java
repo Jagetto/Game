@@ -3,6 +3,7 @@ package com.jnh.game.world;
 import java.util.Random;
 
 import com.jnh.game.state.GameState;
+import com.jnh.game.world.rooms.RandomRoom;
 import com.jnh.game.world.rooms.Room;
 
 /**
@@ -44,12 +45,11 @@ public class Dungeon {
 	 * Generiert den Dungeon.
 	 */
 	private void generate() {
-		
 		rooms = new Room[DUNGEON_SIZE][DUNGEON_SIZE];
 		
 		generator = new Random(seed);
 		
-		rooms[DUNGEON_SIZE / 2][DUNGEON_SIZE / 2] = new Room(state, this);
+		rooms[DUNGEON_SIZE / 2][DUNGEON_SIZE / 2] = new RandomRoom(state, this);
 		currentRoom = rooms[DUNGEON_SIZE / 2][DUNGEON_SIZE / 2];
 	}
 	

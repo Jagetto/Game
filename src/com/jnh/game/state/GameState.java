@@ -49,7 +49,7 @@ public class GameState extends State {
 		dungeon = new Dungeon(this, System.currentTimeMillis(), 1);
 		
 		//TEMP
-		for(int i = 0; i < 1000; i++) {
+		for(int i = 0; i < 3000; i++) {
 			gameObjectManager.add(new GameObject(this, new Sprite(Assets.DEBUG), (float) (Math.random() * 10), (float) (Math.random() * 10), 1, 1), false);
 		}
 		

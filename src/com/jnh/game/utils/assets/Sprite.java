@@ -93,7 +93,6 @@ public class Sprite {
 			((Graphics2D) (g)).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) transparency));
 			g.drawImage(manipulatedImage, (int) x, (int) y, (int) width, (int) height, null);
 		}
-		//Drawing
 		
 	}
 

@@ -22,7 +22,6 @@ public class GameState extends State {
 	private GameKeyManager keyManager;
 	private GameCamera camera;
 	
-	//TODO add integrate dungeon
 	private Dungeon dungeon;
 	
 	private Player player;
@@ -50,11 +49,11 @@ public class GameState extends State {
 		
 		//TEMP
 		for(int i = 0; i < 3000; i++) {
-			gameObjectManager.add(new GameObject(this, new Sprite(Assets.DEBUG), (float) (Math.random() * 10), (float) (Math.random() * 10), 1, 1), false);
+			gameObjectManager.add(new GameObject(this, new Sprite(Assets.DEBUG), (float) (Math.random() * 10), (float) (Math.random() * 10), 1, 1));
 		}
 		
 		player = new Player(this, 0, 0);
-		gameObjectManager.add(player, true);
+		gameObjectManager.add(player);
 		
 		camera = new GameCamera(0, 0, 5f, null);
 		camera.setCenterObject(player);

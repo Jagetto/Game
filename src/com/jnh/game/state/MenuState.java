@@ -3,15 +3,11 @@ package com.jnh.game.state;
 import java.awt.Graphics;
 
 import com.jnh.game.Game;
-import com.jnh.game.ui.UIManager;
 
 public class MenuState extends State {
 	
-	private UIManager uiManager;
-	
 	public MenuState(Game game) {
 		super(game);
-		uiManager = new UIManager();
 	}
 
 	@Override

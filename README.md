@@ -6,6 +6,7 @@ Ihr solltet auf keine vertraulichen Informationen etc. in die Dokumentation, den
 
 **Markdown-Files wie dieses können zwar direkt auf GitHub betrachtet werden, doch werden z.B. UML-Diagramme nur mithilfe von Typora richtig angezeigt werden.**
 
-[Zur Dokumentation](dokumentation/Dokumentation.md)
+[Zur Dokumentation](Dokumentation/Dokumentation.md)
 
-[Verschiedene Dinge](dinge)
+[Verschiedene Dinge](Dinge)
+

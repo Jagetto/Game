@@ -1,3 +1,0 @@
-# Sprite
-
-More to come

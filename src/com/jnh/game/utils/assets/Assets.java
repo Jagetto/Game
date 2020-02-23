@@ -13,9 +13,6 @@ import com.jnh.game.utils.FileLoader;
  */
 public class Assets {
 	
-	/**
-	 * TEST-IMAGE
-	 */
 	public static BufferedImage TEST, PLAYER, DEBUG, STONE_B, STONE_L, STONE_T, STONE_R, STONE_BL, STONE_BT, STONE_BR, STONE_BLT, STONE_BLR, STONE_BTR, STONE_BLTR, STONE_LT, STONE_LR, STONE_TR;
 	
 	/**

@@ -11,7 +11,7 @@ public class Floor extends GameObject {
 	private float friction;
 	
 	public Floor(GameState state, Room room, float friction) {
-		super(state, new Sprite(Assets.DEBUG), 0, 0, Room.ROOM_WIDTH, Room.ROOM_HEIGHT);
+		super(state, new Sprite(Assets.FLOOR), 1, 1, Room.ROOM_WIDTH - 2, Room.ROOM_HEIGHT - 2);
 		this.friction = friction;
 	}
 	

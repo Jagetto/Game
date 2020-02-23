@@ -13,7 +13,7 @@ import com.jnh.game.utils.FileLoader;
  */
 public class Assets {
 	
-	public static BufferedImage TEST, PLAYER, DEBUG, STONE_B, STONE_L, STONE_T, STONE_R, STONE_BL, STONE_BT, STONE_BR, STONE_BLT, STONE_BLR, STONE_BTR, STONE_BLTR, STONE_LT, STONE_LR, STONE_TR;
+	public static BufferedImage TEST, PLAYER, DEBUG, FLOOR, STONE_B, STONE_L, STONE_T, STONE_R, STONE_BL, STONE_BT, STONE_BR, STONE_BLT, STONE_BLR, STONE_BTR, STONE_BLTR, STONE_LT, STONE_LR, STONE_TR;
 	
 	/**
 	 * Lädt alle Texturen.
@@ -23,6 +23,7 @@ public class Assets {
 		TEST = FileLoader.loadImage("test.png");
 		PLAYER = FileLoader.loadImage("player.png");
 		DEBUG = FileLoader.loadImage("debug.png");
+		FLOOR = FileLoader.loadImage("floor.png");
 		STONE_B = FileLoader.loadImage("Wall_Stonebrick_Bot.png");
 		STONE_L = FileLoader.loadImage("Wall_Stonebrick_Left.png");
 		STONE_T = FileLoader.loadImage("Wall_Stonebrick_Top.png");

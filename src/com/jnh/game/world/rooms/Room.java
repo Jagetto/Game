@@ -11,8 +11,8 @@ import com.jnh.game.world.Dungeon;
  */
 public abstract class Room {
 	
-	public static final int ROOM_WIDTH =  10;
-	public static final int ROOM_HEIGHT =  10;
+	public static final int ROOM_WIDTH =  16;
+	public static final int ROOM_HEIGHT =  16;
 	
 	private GameState state;
 	private Dungeon dungeon;

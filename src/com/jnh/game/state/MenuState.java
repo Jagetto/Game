@@ -2,16 +2,17 @@ package com.jnh.game.state;
 
 import java.awt.Graphics;
 
+import javax.swing.JPanel;
+
 import com.jnh.game.Game;
-import com.jnh.game.ui.UIManager;
 
 public class MenuState extends State {
 	
-	private UIManager uiManager;
+	private JPanel root;
 	
 	public MenuState(Game game) {
 		super(game);
-		uiManager = new UIManager();
+		root = new JPanel();
 	}
 
 	@Override

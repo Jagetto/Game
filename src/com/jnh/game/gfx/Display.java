@@ -31,36 +31,34 @@ public class Display {
 		frame = new JFrame(title);
 		frame.setSize(width,height);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setBackground(Color.WHITE);
+		//frame.setContentPane(new JLayeredPane());
 		frame.getContentPane().setBackground(Color.WHITE);
 		
 		//RESIZING
 		frame.addComponentListener(new ComponentAdapter() {
-			
 			@Override
 			public void componentResized(ComponentEvent e) {
 				super.componentResized(e);
-				Display.this.resizedFrame((int) frame.getSize().getWidth(),(int) frame.getSize().getHeight());
+				resizedFrame((int) frame.getSize().getWidth(),(int) frame.getSize().getHeight());
 			}
-			
 		});
 		
 		//CANVAS
 		canvas = new Canvas();
-		canvas.setFocusable(false);
+		canvas.setFocusable(true);
 		resizedFrame(width, height);
 		frame.add(canvas);
-		
+		//canvas.setVisible(false);
 		frame.pack();
 	}
 	
 	public Canvas getCanvas() {
 		return canvas;
 	}
-	
+
 	public JFrame getFrame() {
 		return frame;
 	}

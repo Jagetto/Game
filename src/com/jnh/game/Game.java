@@ -69,8 +69,6 @@ public class Game implements Runnable {
 		graphics = bufferStrategy.getDrawGraphics();
 		graphics.clearRect(0, 0, width, height);
 		
-		graphics.drawString("Test 07.02.2020 LOL", 20, 20);
-		
 		if(state != null) {
 			state.render(graphics);
 		}

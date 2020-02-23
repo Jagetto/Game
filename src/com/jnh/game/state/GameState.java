@@ -41,16 +41,17 @@ public class GameState extends State {
 
 	@Override
 	public void load() {
+		
 		keyManager = new GameKeyManager();
-		game.getDisplay().getFrame().addKeyListener(keyManager);
 		game.getDisplay().getCanvas().addKeyListener(keyManager);
+		
 		gameObjectManager = new GameObjectManager();
 		
 		dungeon = new Dungeon(this, System.currentTimeMillis(), 1);
 		
 		//TEMP
 		for(int i = 0; i < 3000; i++) {
-			gameObjectManager.add(new GameObject(this, new Sprite(Assets.DEBUG), (float) (Math.random() * 10), (float) (Math.random() * 10), 1, 1), false);
+			gameObjectManager.add(new GameObject(this, new Sprite(Assets.STONE_B), (float) (Math.random() * 10), (float) (Math.random() * 10), 1, 1), false);
 		}
 		
 		player = new Player(this, 0, 0);
@@ -69,9 +70,7 @@ public class GameState extends State {
 
 	@Override
 	public void render(Graphics g) {
-		long start = System.currentTimeMillis();
 		gameObjectManager.render(g);
-		System.out.println(System.currentTimeMillis() - start);
 	}
 
 	@Override
@@ -82,7 +81,7 @@ public class GameState extends State {
 
 	@Override
 	public void dispose() {
-		
+		game.getDisplay().getCanvas().removeKeyListener(keyManager);
 	}
 
 	/**

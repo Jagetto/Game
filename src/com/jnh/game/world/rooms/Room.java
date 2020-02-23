@@ -17,10 +17,10 @@ public abstract class Room {
 	private GameState state;
 	private Dungeon dungeon;
 	
-	public RoomType type;
-	public Room top, left, bottom, right;
+	private RoomType type;
+	private Room top, left, bottom, right;
 	
-	public Floor floor;
+	private Floor floor;
 	
 	public Room(GameState state, Dungeon dungeon) {
 		this.state = state;
@@ -29,6 +29,14 @@ public abstract class Room {
 	}
 	
 	protected abstract void generate();
+	
+	
+	/**
+	 * @param floor der neue Boden
+	 */
+	public void setFloor(Floor floor) {
+		this.floor = floor;
+	}
 
 	/**
 	 * @return der Boden

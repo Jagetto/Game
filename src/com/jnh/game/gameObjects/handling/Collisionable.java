@@ -1,6 +1,6 @@
 package com.jnh.game.gameObjects.handling;
 
-import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 
 import com.jnh.game.gameObjects.GameObject;
 
@@ -22,6 +22,6 @@ public interface Collisionable {
 	 * Gibt ein Recteck mit der Größe das Objekts zurückgeben.
 	 * @return das Rechteck
 	 */
-	public Rectangle getBounds();
+	public Rectangle2D getBounds();
 	
 }

@@ -23,6 +23,9 @@ public class GameObjectManager {
 	 */
 	public GameObjectManager() {
 		gameObjects = new LinkedList<GameObject>();
+		collisionables = new LinkedList<Collisionable>();
+		collectables = new LinkedList<Collectable>();
+		interactables =  new LinkedList<Interactable>();
 	}
 	
 	/**

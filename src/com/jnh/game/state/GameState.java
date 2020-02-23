@@ -3,13 +3,10 @@ package com.jnh.game.state;
 import java.awt.Graphics;
 
 import com.jnh.game.Game;
-import com.jnh.game.gameObjects.GameObject;
 import com.jnh.game.gameObjects.entities.Player;
 import com.jnh.game.gameObjects.handling.GameObjectManager;
 import com.jnh.game.gfx.cameras.GameCamera;
 import com.jnh.game.input.GameKeyManager;
-import com.jnh.game.utils.assets.Assets;
-import com.jnh.game.utils.assets.Sprite;
 import com.jnh.game.world.Dungeon;
 
 /**
@@ -53,7 +50,7 @@ public class GameState extends State {
 			//gameObjectManager.add(new GameObject(this, new Sprite(Assets.DEBUG), (float) (Math.random() * 10), (float) (Math.random() * 10), 1, 1));
 		}
 		
-		player = new Player(this, 0, 0);
+		player = new Player(this, 3, 3);
 		//gameObjectManager.add(player);
 		
 		camera = new GameCamera(0, 0, 5f, null);

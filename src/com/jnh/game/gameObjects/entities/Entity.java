@@ -1,6 +1,9 @@
 package com.jnh.game.gameObjects.entities;
 
+import java.awt.geom.Rectangle2D;
+
 import com.jnh.game.gameObjects.GameObject;
+import com.jnh.game.gameObjects.handling.Collisionable;
 import com.jnh.game.state.GameState;
 import com.jnh.game.utils.Direction;
 import com.jnh.game.utils.assets.Sprite;
@@ -19,6 +22,8 @@ public abstract class Entity extends GameObject {
 	private float maxSpeed;
 	private float xSpeed;
 	private float ySpeed;
+	
+	private boolean leftBlocked, upBlocked, rightBlocked, downBlocked = false; 
 	
 	/**
 	 * Erezeugt ein neues Entity-Objekt mit den angegebenen Parametern.
@@ -90,11 +95,24 @@ public abstract class Entity extends GameObject {
 		}
 	}
 	
+	protected void calculateBlockedDirections() {
+		for(Collisionable collisionable: state.getGameObjectManager().getCollisionables()) {
+			Rectangle2D other = collisionable.getBounds();
+			leftBlocked = other.getX() + getWidth() >= getX();
+			rightBlocked = getX() + getWidth() >= other.getX();
+			upBlocked = other.getY() + getHeight() >= getY();
+		}
+	}
 	
+	protected boolean doesIntersectWith(Rectangle2D rectangle) {
+		Rectangle2D entityRect = new Rectangle2D.Float(getX(), getY(), getWidth(), getHeight());
+		return entityRect.intersects(rectangle);
+	}
 	
 	@Override
 	public void tick(double deltaTime) {
 		super.tick(deltaTime);
+		calculateBlockedDirections();
 		if(Math.abs(xSpeed) > state.getDungeon().getCurrentRoom().getFloor().getFriction()) {
 			xSpeed = xSpeed - (Math.abs(xSpeed) / xSpeed) * state.getDungeon().getCurrentRoom().getFloor().getFriction();
 		} else {
@@ -105,8 +123,12 @@ public abstract class Entity extends GameObject {
 		} else {
 			ySpeed = 0;
 		}
-		setY(getY() + ySpeed);
-		setX(getX() + xSpeed);
+		if((!rightBlocked && xSpeed > 0) || (!leftBlocked && xSpeed < 0)) {
+			setX(getX() + xSpeed);
+		}
+		if((!downBlocked && ySpeed > 0) || (!upBlocked && ySpeed < 0)) {
+			setY(getY() + ySpeed);
+		}
 		
 	}
 	

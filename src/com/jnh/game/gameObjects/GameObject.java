@@ -34,6 +34,7 @@ public class GameObject {
 		this.y = y;
 		this.width = width;
 		this.height = height;
+		state.getGameObjectManager().add(this);
 	}
 	
 	/**

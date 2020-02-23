@@ -19,11 +19,30 @@ public class RandomRoom extends Room {
 		setFloor(new Floor(getState(), this, 0.025f));
 		
 		//Generate outer walls
-		for(int x = 0; x < ROOM_WIDTH; x++) {
-			for(int y = 0; y < 2; y++) {
-				getState().getGameObjectManager().add(new Wall(getState(), new Sprite(Assets.STONE_B), x, y * 4));
-			}
+		//top
+		for(int x = 1; x < ROOM_WIDTH - 1; x++) {
+			new Wall(getState(), new Sprite(Assets.STONE_B), x, 0);
 		}
+		//top right
+		new Wall(getState(), new Sprite(Assets.STONE_BL), ROOM_WIDTH - 1, 0);
+		//right
+		for(int y = 1; y < ROOM_HEIGHT - 1; y++) {
+			new Wall(getState(), new Sprite(Assets.STONE_L), ROOM_WIDTH - 1, y);
+		}
+		//bottom right
+		new Wall(getState(), new Sprite(Assets.STONE_LT), ROOM_WIDTH - 1, ROOM_HEIGHT - 1);
+		//bottom
+		for(int x = 1; x < ROOM_WIDTH - 1; x++) {
+			new Wall(getState(), new Sprite(Assets.STONE_T), x, ROOM_HEIGHT - 1);
+		}
+		//bottom left
+		new Wall(getState(), new Sprite(Assets.STONE_TR), 0, ROOM_HEIGHT - 1);
+		//left
+		for(int y = 1; y < ROOM_HEIGHT - 1; y++) {
+			new Wall(getState(), new Sprite(Assets.STONE_R), 0, y);
+		}
+		//top left
+		new Wall(getState(), new Sprite(Assets.STONE_BR), 0, 0);
 		
 	}
 	

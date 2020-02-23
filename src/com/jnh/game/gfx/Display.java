@@ -35,7 +35,7 @@ public class Display {
 		frame.setVisible(true);
 		frame.setBackground(Color.WHITE);
 		//frame.setContentPane(new JLayeredPane());
-		frame.getContentPane().setBackground(Color.WHITE);
+		frame.getContentPane().setBackground(Color.BLACK);
 		
 		//RESIZING
 		frame.addComponentListener(new ComponentAdapter() {

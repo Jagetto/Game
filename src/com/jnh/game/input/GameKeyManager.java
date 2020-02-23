@@ -13,7 +13,7 @@ public class GameKeyManager implements KeyListener {
 	public boolean walkUp, walkLeft, walkDown, walkRight;
 	
 	public GameKeyManager() {
-		keys = new boolean[256];
+		keys = new boolean[1024];
 	}
 	
 	public void tick() {

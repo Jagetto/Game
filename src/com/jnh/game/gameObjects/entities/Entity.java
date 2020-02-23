@@ -65,21 +65,25 @@ public abstract class Entity extends GameObject {
 			if(-ySpeed < maxSpeed) {
 				ySpeed = ySpeed - 0.03f * speedMultiplier;
 			}
+			getSprite().setRotation(180);
 			break;
 		case LEFT:
 			if(-xSpeed < maxSpeed) {
 				xSpeed = xSpeed - 0.03f * speedMultiplier;
 			}
+			getSprite().setRotation(90);
 			break;
 		case DOWN:
 			if(ySpeed < maxSpeed) {
 				ySpeed = ySpeed + 0.03f * speedMultiplier;
 			}
+			getSprite().setRotation(360);
 			break;
 		case RIGHT:
 			if(xSpeed < maxSpeed) {
 				xSpeed = xSpeed + 0.03f * speedMultiplier;
 			}
+			getSprite().setRotation(270);
 			break;
 		default:
 			break;

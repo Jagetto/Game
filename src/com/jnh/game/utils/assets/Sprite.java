@@ -19,6 +19,8 @@ public class Sprite {
 	protected float transparency;
 	protected boolean flip;
 	
+	protected float anchorX, anchorY = 0;
+	
 	/**
 	 * Erstellt ein Sprite mit den Standard-Werten.
 	 * @param image das Ausgangsbild
@@ -88,10 +90,10 @@ public class Sprite {
 			rotateOp.filter(manipulatedImage,rotatedImage);
 			
 			((Graphics2D) (g)).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) transparency));
-			g.drawImage(rotatedImage, (int) x -w/2, (int) y -h/2, null);
+			g.drawImage(rotatedImage, (int) (x - w * getAnchorX()), (int) (y - h * getAnchorY()), null);
 		} else {
 			((Graphics2D) (g)).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) transparency));
-			g.drawImage(manipulatedImage, (int) x, (int) y , (int) width, (int) height, null);
+			g.drawImage(manipulatedImage, (int) (x - width * getAnchorX()), (int) (y - height * getAnchorY()), (int) width, (int) height, null);
 		}
 		
 	}
@@ -160,7 +162,33 @@ public class Sprite {
 		this.flip = flip;
 	}
 	
+	/**
+	 * @return x-Koordinate des Punkts, um den das Sprite gedreht wird, in Verhältnis zur Breite (<code>0.5f</code> entspricht der Mitte, <code>1f</code> dem Ende etc.)
+	 */
+	public float getAnchorX() {
+		return anchorX;
+	}
 	
+	/**
+	 * @return y-Koordinate des Punkts, um den das Sprite gedreht wird, in Verhältnis zur Höhe (<code>0.5f</code> entspricht der Mitte, <code>1f</code> dem Ende etc.)
+	 */
+	public float getAnchorY() {
+		return anchorY;
+	}
+	
+	/**
+	 * @param anchorX die x-Koordinate des Punkts, um den das Sprite gedreht wird, in Verhältnis zur Breite (<code>0.5f</code> entspricht der Mitte, <code>1f</code> dem Ende etc.)
+	 */
+	public void setAnchorX(float anchorX) {
+		this.anchorX = anchorX;
+	}
+	
+	/**
+	 * @param anchorY die y-Koordinate des Punkts, um den das Sprite gedreht wird, in Verhältnis zur Höhe (<code>0.5f</code> entspricht der Mitte, <code>1f</code> dem Ende etc.)
+	 */
+	public void setAnchorY(float anchorY) {
+		this.anchorY = anchorY;
+	}
 	
 	
 	

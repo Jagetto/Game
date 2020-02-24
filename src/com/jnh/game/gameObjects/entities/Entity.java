@@ -14,7 +14,7 @@ import com.jnh.game.utils.assets.Sprite;
  */
 public abstract class Entity extends GameObject {
 	
-	protected static final float DEFAULT_ENTITY_SIZE = 0.9f;
+	protected static final float DEFAULT_ENTITY_SIZE = 1f;
 	
 	private int maxHealth;
 	private int health;
@@ -40,7 +40,7 @@ public abstract class Entity extends GameObject {
 		this.xSpeed = 0f;
 		this.ySpeed = 0f;
 		
-		this.maxSpeed = 0.1f;
+		this.maxSpeed = 3f;
 		this.maxHealth = 100;
 		this.health = 100;
 	}
@@ -70,25 +70,25 @@ public abstract class Entity extends GameObject {
 			if(-ySpeed < maxSpeed) {
 				ySpeed = ySpeed - 0.03f * speedMultiplier;
 			}
-			//getSprite().setRotation(180);
+			getSprite().setRotation(180);
 			break;
 		case LEFT:
 			if(-xSpeed < maxSpeed) {
 				xSpeed = xSpeed - 0.03f * speedMultiplier;
 			}
-			//getSprite().setRotation(90);
+			getSprite().setRotation(90);
 			break;
 		case DOWN:
 			if(ySpeed < maxSpeed) {
 				ySpeed = ySpeed + 0.03f * speedMultiplier;
 			}
-			//getSprite().setRotation(360);
+			getSprite().setRotation(360);
 			break;
 		case RIGHT:
 			if(xSpeed < maxSpeed) {
 				xSpeed = xSpeed + 0.03f * speedMultiplier;
 			}
-			//getSprite().setRotation(270);
+			getSprite().setRotation(270);
 			break;
 		default:
 			break;
@@ -96,11 +96,36 @@ public abstract class Entity extends GameObject {
 	}
 	
 	protected void calculateBlockedDirections() {
+		leftBlocked = false;
+		rightBlocked = false;
+		upBlocked = false;
+		downBlocked = false;
 		for(Collisionable collisionable: state.getGameObjectManager().getCollisionables()) {
 			Rectangle2D other = collisionable.getBounds();
-			leftBlocked = other.getX() + getWidth() >= getX();
-			rightBlocked = getX() + getWidth() >= other.getX();
-			upBlocked = other.getY() + getHeight() >= getY();
+			if(other.getX() + getWidth() >= getX() && other.getX() < getX() && getY() >= other.getY() && getY() <= other.getY() + other.getWidth()) {
+				leftBlocked = true;
+				setX((float) (other.getX() + other.getWidth()));
+				xSpeed = 0;
+				ySpeed = 0;
+			}
+			if(getX() + getWidth() >= other.getX() && getX() < other.getX()&& doesIntersectWith(collisionable.getBounds())) {
+				rightBlocked = true;
+				setX((float) (other.getX() - getWidth()));
+				xSpeed = 0;
+				ySpeed = 0;
+			}
+			if(other.getY() + getHeight() >= getY() && other.getY() < getY() && doesIntersectWith(collisionable.getBounds())) {
+				upBlocked = true;
+				setY((float) (other.getY() + other.getHeight()));
+				xSpeed = 0;
+				ySpeed = 0;
+			}
+			if(getY() + getHeight() >= other.getY() && getY() < other.getY() && doesIntersectWith(collisionable.getBounds())) {
+				downBlocked = true;
+				setY((float) (other.getY() - getHeight()));
+				xSpeed = 0;
+				ySpeed = 0;
+			}
 		}
 	}
 	
@@ -112,7 +137,7 @@ public abstract class Entity extends GameObject {
 	@Override
 	public void tick(double deltaTime) {
 		super.tick(deltaTime);
-		//calculateBlockedDirections();
+		calculateBlockedDirections();
 		if(Math.abs(xSpeed) > state.getDungeon().getCurrentRoom().getFloor().getFriction()) {
 			xSpeed = xSpeed - (Math.abs(xSpeed) / xSpeed) * state.getDungeon().getCurrentRoom().getFloor().getFriction();
 		} else {
@@ -129,7 +154,6 @@ public abstract class Entity extends GameObject {
 		if((!downBlocked && ySpeed > 0) || (!upBlocked && ySpeed < 0)) {
 			setY(getY() + ySpeed);
 		}
-		getSprite().setRotation(getSprite().getRotation() + 1);
 		
 	}
 	

@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 public class AnimatedSprite extends Sprite {
 
 	private BufferedImage[] images;
+	private double counter;
 	
 	public AnimatedSprite(BufferedImage image) {
 		super(image);

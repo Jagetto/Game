@@ -70,25 +70,25 @@ public abstract class Entity extends GameObject {
 			if(-ySpeed < maxSpeed) {
 				ySpeed = ySpeed - 0.03f * speedMultiplier;
 			}
-			getSprite().setRotation(180);
+			//getSprite().setRotation(180);
 			break;
 		case LEFT:
 			if(-xSpeed < maxSpeed) {
 				xSpeed = xSpeed - 0.03f * speedMultiplier;
 			}
-			getSprite().setRotation(90);
+			//getSprite().setRotation(90);
 			break;
 		case DOWN:
 			if(ySpeed < maxSpeed) {
 				ySpeed = ySpeed + 0.03f * speedMultiplier;
 			}
-			getSprite().setRotation(360);
+			//getSprite().setRotation(360);
 			break;
 		case RIGHT:
 			if(xSpeed < maxSpeed) {
 				xSpeed = xSpeed + 0.03f * speedMultiplier;
 			}
-			getSprite().setRotation(270);
+			//getSprite().setRotation(270);
 			break;
 		default:
 			break;
@@ -112,7 +112,7 @@ public abstract class Entity extends GameObject {
 	@Override
 	public void tick(double deltaTime) {
 		super.tick(deltaTime);
-		calculateBlockedDirections();
+		//calculateBlockedDirections();
 		if(Math.abs(xSpeed) > state.getDungeon().getCurrentRoom().getFloor().getFriction()) {
 			xSpeed = xSpeed - (Math.abs(xSpeed) / xSpeed) * state.getDungeon().getCurrentRoom().getFloor().getFriction();
 		} else {
@@ -129,6 +129,7 @@ public abstract class Entity extends GameObject {
 		if((!downBlocked && ySpeed > 0) || (!upBlocked && ySpeed < 0)) {
 			setY(getY() + ySpeed);
 		}
+		getSprite().setRotation(getSprite().getRotation() + 1);
 		
 	}
 	

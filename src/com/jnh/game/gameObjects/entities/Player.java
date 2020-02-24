@@ -18,11 +18,14 @@ public class Player extends Entity {
 		super.tick(deltaTime);
 		if(state.getKeyManager().walkUp) {
 			move(Direction.UP, deltaTime);
-		} else if(state.getKeyManager().walkLeft) {
+		}
+		if(state.getKeyManager().walkLeft) {
 			move(Direction.LEFT, deltaTime);
-		} else if(state.getKeyManager().walkDown) {
+		}
+		if(state.getKeyManager().walkDown) {
 			move(Direction.DOWN, deltaTime);
-		} else if(state.getKeyManager().walkRight) {
+		}
+		if(state.getKeyManager().walkRight) {
 			move(Direction.RIGHT, deltaTime);
 		}
 	}

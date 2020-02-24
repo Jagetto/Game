@@ -88,7 +88,7 @@ public class Sprite {
 			rotateOp.filter(manipulatedImage,rotatedImage);
 			
 			((Graphics2D) (g)).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) transparency));
-			g.drawImage(rotatedImage, (int) x, (int) y, null);
+			g.drawImage(rotatedImage, (int) x -w/2, (int) y -h/2, null);
 		} else {
 			((Graphics2D) (g)).setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, (float) transparency));
 			g.drawImage(manipulatedImage, (int) x, (int) y , (int) width, (int) height, null);
